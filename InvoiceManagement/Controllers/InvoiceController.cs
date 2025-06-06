@@ -19,7 +19,7 @@ namespace InvoiceManagement.Controllers
         }
 
         [HttpPost]
-        [Route("create-Invoice")]
+        [Route("invoice")]
         [AllowAnonymous]
         public async Task<IActionResult> CreateInvoice([FromBody] Invoice model)
         {
@@ -36,7 +36,7 @@ namespace InvoiceManagement.Controllers
 
 
         [HttpPut]
-        [Route("update-Invoice")]
+        [Route("invoice")]
         public async Task<IActionResult> UpdateInvoice([FromBody] InvoiceViewModel model)
         {
             var Invoice = await _InvoiceService.UpdateInvoice(model);
@@ -53,7 +53,7 @@ namespace InvoiceManagement.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-Invoice")]
+        [Route("invoice")]
         public async Task<IActionResult> DeleteInvoice(int id)
         {
             var Invoice = await _InvoiceService.GetInvoiceById(id);
@@ -71,7 +71,7 @@ namespace InvoiceManagement.Controllers
 
 
         [HttpGet]
-        [Route("get-Invoice-by-id")]
+        [Route("invoice")]
         public async Task<IActionResult> GetInvoiceById(int id)
         {
             var Invoice = await _InvoiceService.GetInvoiceById(id);
@@ -87,7 +87,7 @@ namespace InvoiceManagement.Controllers
         }
 
         [HttpGet]
-        [Route("get-all-Invoices")]
+        [Route("invoices")]
         public async Task<IEnumerable<Invoice>> GetAllInvoices()
         {
             return _InvoiceService.GetAllInvoices();
